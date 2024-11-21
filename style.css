@@ -31,8 +31,7 @@ form {
     min-width: 300px;
     max-width: 500px;
     margin: auto;
-    border: black;
-}
+    border: 2px solid #4CAF50;
 
 .g-recaptcha {
     margin-top: 15px;
