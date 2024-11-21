@@ -32,3 +32,9 @@ form {
     max-width: 500px;
     margin: auto;
 }
+
+.g-recaptcha {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
