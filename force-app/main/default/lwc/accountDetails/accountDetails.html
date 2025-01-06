@@ -1,0 +1,81 @@
+<template>
+    <lightning-card title={formTitle}
+    icon-name="custom: custom14">
+    <div class="slds-var-p-around_small">
+        <lightning-combobox
+            name="parentacc"
+            label="Parent Account"
+            
+            placeholder="Select Parent Account"
+            options={parentoptions}
+            onchange={handleChange} 
+            required="true"
+            class="validateme"
+            value={selParentAcc}
+            message-when-value-missing="Please select parent Account"
+            ></lightning-combobox>
+
+            <lightning-input
+            label="Account Name"
+            placeholder="Enter Account Name"
+            onchange={handleChange}
+            name="accname"
+            type="text"
+            required="true"
+            message-when-value-missing="Enter Account Name"
+            min-length="2"
+            max-length="60"
+            class="validateme"
+            value={selAccName}
+            message-when-too-short="Minumum length of Account Name is 2"
+            message-when-too-long="Maximum length of Account Name is 60">
+
+            </lightning-input>
+            <lightning-input
+            type="Date"
+            onchange={handleChange}
+            label="SLA Expiration Date"
+            value={selExpDate}
+            name="slaexpdt">
+
+            </lightning-input>
+            <template lwc:if={slapicklist.data}>
+            <lightning-radio-group 
+            name="slatype"
+            label="SLA Type"
+            options={slapicklist.data.values}
+            type="button"
+            value={selSlaType}
+            onchange={handleChange}>
+        </lightning-radio-group>
+    </template>
+        <lightning-slider 
+        label="Number of Locations" 
+        min="1"
+        max="50"
+        step="1"
+        value={selnoOfLocations}
+        onchange={handleChange}
+        name="nooflocations"
+        
+        ></lightning-slider>
+        
+        <lightning-input-rich-text
+        label="Description"
+        name="description"
+        onchange={handleChange}
+        value={selDescription}
+        disabled-categories="FORMAT_FONT">
+    </lightning-input-rich-text>
+    </div>
+    <div class="slds-var-p-around_small">
+        <lightning-button
+        label="Save"
+        variant="brand"
+        onclick={saveRecord}
+        ></lightning-button>
+
+    </div>
+</lightning-card>
+    
+</template>
